@@ -1,15 +1,18 @@
 <head>
+    <style type='text/css'>
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            /*background: url(http://www.sunhome.ru/UsersGallery/Cards/prazdnik_den_zemli_kartinka.jpg) center no-repeat;
+*/
+            background-image: url(../public/ra_vibra_620_465.jpg);
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
     <title>Hyd-ra</title>
 </head>
-<body>
-<div class="container">
-    <header class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">Hyd-ra</a>
-        </div>
-    </header>
-    <div id="main" class="row-fluid">
-      {{> solversList}}
-    </div>
-</div>
-</body>
