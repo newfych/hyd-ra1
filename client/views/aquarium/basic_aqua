@@ -1,0 +1,3 @@
+<template name="basicAquaPage">
+    <h1>Basic aquarium</h1>
+</template>
