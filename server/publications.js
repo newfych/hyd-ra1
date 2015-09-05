@@ -1,3 +1,3 @@
-Meteor.publish('solvers', function() {
+Meteor.publish('solutions', function() {
     return Solvers.find();
 });

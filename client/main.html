@@ -5,11 +5,16 @@
             height: 100%;
         }
         body {
-            background: url(/ra.jpg) center no-repeat;
+            background: url(/ra.jpg) center no-repeat fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
+        }
+        .navbar{
+            height: 35px;
+            min-height: 30px;
+            margin-bottom: 0px;
         }
         .navbar-default {
                background: none;
@@ -36,13 +41,13 @@
             color: lavenderblush;
         }
         .custom-background{
-            background: rgba(50,100,50,0.5);
+            background: rgba(50,100,50,0.7);
         }
         .pull-center {
             text-align: center;
         }
         .footer {
-            position: absolute;
+            position: fixed;
             bottom: 0;
             width: 100%;
             /* Set the fixed height of the footer here */
@@ -58,9 +63,64 @@
         a:hover{
             color: lavenderblush;
         }
+        .custom-header{
+              text-align: center;
+              color: #ffaf17;
+        }
+        .custom-header-default{
+            color: #ffaf17;
+        }
         .custom-description{
-            text-align: center;
             color: #ffeda5;
+        }
+        .interface-container{
+            position: fixed;
+            width: 90%;
+            height: 90%;
+            top: 5%;
+            left: 5%;
+            background: rgba(50,100,50,0.7);
+        }
+        .background-tips{
+            text-align: center;
+            color: lavenderblush;
+        }
+        .blank-row{
+            height: 0px;
+        }
+        .minimal-margin{
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        .blue-button{
+            width: auto;
+            background: darkslategray;
+            border: none;
+        }
+        .yellow-button{
+            width: auto;
+            background: #ada800;
+            border: none;
+        }
+        .red-button{
+            width: auto;
+            background: #714f62;
+            border: none;
+        }
+        .green-button{
+            width: auto;
+            background: #2c4f33;
+            border: none;
+        }
+        .left-button{
+            position: fixed;
+            bottom: 5%;
+            left: 5%;
+        }
+        .right-button{
+            position: fixed;
+            bottom: 5%;
+            right: 5%;
         }
     </style>
     <title>Hyd-ra</title>

@@ -1,0 +1,86 @@
+<template name="mainScreenHelp">
+    <div class="blank-row">
+        <div class="span12">
+            <h1> </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+            <h3 class="custom-header-default minimal-margin">Main screen help page</h3>
+        </div>
+    </div>
+  <div class="container-fluid custom-background minimal-margin">
+      <p class="row common">1. You have two options in main screen window:
+    </p>
+    <p class="row common">a) create new screen</p>
+    <p class="row common">b) edit existing screen</p>
+    <p class="row common">Let's take a deeper look on them.</p>
+    <p class="row common">Screens allow you to place interface elements like buttons, sliders, indicators,
+        even video frames(with equal support). For example you may group most wanted elements
+        in the main screen, other in second, etc. Interface consists of elements wich are aligned
+        with 12x9 grid system (width/ height) - i.e. 108 elements of small size (1x1), or 12 elements
+        with size 3x3, or 2 elements with size 6x9 for example. Each element have
+        several parametrs, that are common for interface elements, and several specific
+      ones.</p>
+      <p class="row common">Common interface element parametrs:</p>
+      <ul class="row common">
+          <li>Size (in 12x9 grid ??????) i.e. width = 10, height = 6 for example</li>
+          <li>Coordinates (in 12x9 grid ??????) i.e. width = 0, height = 2 from left-top corner for example</li>
+          <li>Font color with hover option</li>
+          <li>Background color with hover option</li>
+          <li>Border color with hover option</li>
+          <li>Background image with hover option</li>
+          <li>id, for internal use (automatically created by system)</li>
+      </ul>
+      <p class="row common">Interface elements:</p>
+      <ul class="row common">
+          <li>Active</li>
+              <ul class="row common">
+                  <li>Button</li>
+                  <li>Slider</li>
+                  <li>Switch</li>
+                  <li>Joystick</li>
+              </ul>
+          <p></p>
+          <li>Passive</li>
+              <ul class="row common">
+                  <li>Digital indicator</li>
+                  <li>Brightness indicator</li>
+                  <li>Speedometr</li>
+                  <li>Hystogramm</li>
+                  <li>Graph</li>
+                  <li>Video frame</li>
+              </ul>
+          <p></p>
+          <li>Button specific parametrs:</li>
+              <ul class="row common">
+                  <li>Default value (on/off)</li>
+                  <li>On-state color</li>
+                  <li>On-state text</li>
+                  <li>Destination - navigation thru screens or send on/off button state</li>
+              </ul>
+          <p></p>
+          <li>Slider specific parametrs:</li>
+              <ul class="row common">
+                  <li>Minimum value</li>
+                  <li>Maimum value</li>
+                  <li>Default value</li>
+                  <li>Slider color</li>
+              </ul>
+          <p></p>
+          <li>Switch specific parametrs:</li>
+              <ul class="row common">
+                  <li>Default value (on/off)</li>
+                  <li>On-state color</li>
+                  <li>On-state text</li>
+              </ul>
+          <p></p>
+          <li>Joystick specific parametrs:</li>
+              <ul class="row common">
+                  <li>Minimum/maximum X value (i.e. 50 means from -50 (right position ) to 50 ( left position ))</li>
+                  <li>Minimum/maximum Y value</li>
+                  <li>Press command</li>
+              </ul>
+      </ul>
+  </div>
+</template>
