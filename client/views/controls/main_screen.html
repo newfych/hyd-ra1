@@ -6,33 +6,29 @@
             </div>
         </div>
         <div class="row">
-            <div class="span12">
+            <div class="interface-header">
                 <h4 class="custom-header minimal-margin">Welcome! This is your main screen. Use help to know more.</h4>
             </div>
         </div>
-        <div class="container-fluid">
-            <p class="background-tips">Tooltip: You can add new buttons here, or edit existing.</p>
+        <div class="container-fluid center-height">
+                <h3 class="background-tips">Tooltip: You can add new buttons and screens here, or edit existing.</h3>
         </div>
-            <div class="row"> <!-- buttons container -->
-                <div class="left-button">
-                    <button class="blue-button"><a href="{{pathFor 'mainScreenHelp'}}">Help</a></button>
-                </div>
-                <div class="span4">
-                    <button class="green-button"><a href="#">Create new screen</a></button>
-                </div>
-                <div class="right-button">
-                    <button class="red-button"><a href="#">Edit current screen</a></button>
-                </div>
-            </div> <!-- buttons container -->
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span2">
-                    <!--Sidebar content-->
-                </div>
-                <div class="span10">
-                    <!--Body content-->
-                </div>
+        <div class="row"> <!-- buttons container -->
+            <div class="left-button">
+                <a href="{{pathFor 'mainScreenHelp'}}">
+                    <button class="blue-button">Help</button>
+                </a>
             </div>
-        </div>
+            <div class="middle-button">
+                <a href="#">
+                    <button class="green-button">Create new screen</button>
+                </a>
+            </div>
+            <div class="right-button">
+                <a href="#">
+                    <button class="red-button">Edit current screen</button>
+                </a>
+            </div>
+        </div> <!-- buttons container -->
     </div>
 </template>
