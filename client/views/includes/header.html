@@ -8,15 +8,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <span class="navbar-brand common"><p class="common-brand">Hyd-ra</p></span>
+
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{pathFor 'solutionsList'}}"><p class="custom-href">Home</p></a></li>
-                    <li><a href="{{pathFor 'aboutPage'}}"><p class="custom-href">About</p></a></li>
-                    <li><a href="{{pathFor 'contactsPage'}}"><p class="custom-href">Contact</p></a></li>
-                    <li class="navbar-brand common">{{>loginButtons}}</li>
-                    {{#if currentUser}}<li><a href="{{pathFor 'mainScreen'}}"><p class="custom-href">Test access</p></a></li>{{/if}}
+                    {{#if currentUser}}
+                        <li class="navbar-brand common interface-login-button">{{>loginButtons}}</li>
+                        <li><a href="{{pathFor 'mainScreen'}}"><p class="custom-href interface-main-page-button">Main screen</p></a></li>
+                    {{else}}
+                        <span class="navbar-brand common"><p class="common-brand">Hyd-ra</p></span>
+                        <li><a href="{{pathFor 'solutionsList'}}"><p class="custom-href">Home</p></a></li>
+                        <li><a href="{{pathFor 'aboutPage'}}"><p class="custom-href">About</p></a></li>
+                        <li><a href="{{pathFor 'contactsPage'}}"><p class="custom-href">Contact</p></a></li>
+                        <li class="navbar-brand common">{{>loginButtons}}</li>
+                    {{/if}}
+
                </ul>
                 <!-- <ul class="nav navbar-nav navbar-right">
 
