@@ -1,4 +1,4 @@
-<template name="mainScreen">
+<template name="createScreen">
     <div class="interface-container">
         <div class="blank-row">
             <div class="span12">
@@ -7,12 +7,11 @@
         </div>
         <div class="row">
             <div class="interface-header">
-                <h4 class="custom-header minimal-margin">Welcome, {{user_name}}! This is your main screen. Use help to know more.</h4>
+                <h4 class="custom-header minimal-margin">Here you can create new screen</h4>
             </div>
         </div>
         <div class="container-fluid center-height">
-            <h3 class="background-tips">Tooltip: You can add new screens here, or edit existing.</h3>
-            <p class="common">{{user_name}} Husername</p>
+            <h3 class="background-tips">Tooltip: You can add new intrface elements here, or edit existing.</h3>
         </div>
         <div class="row"> <!-- buttons container -->
             <div class="left-button">
@@ -21,13 +20,13 @@
                 </a>
             </div>
             <div class="middle-button">
-                <a href="{{pathFor 'createScreen'}}">
-                    <button class="green-button">Create new screen</button>
+                <a href="#">
+                    <button class="yellow-button">Screen list</button>
                 </a>
             </div>
             <div class="right-button">
-                <a href="{{pathFor 'editScreen'}}">
-                    <button class="red-button">Edit current screen</button>
+                <a href="#">
+                    <button class="green-button">Save settings</button>
                 </a>
             </div>
         </div> <!-- buttons container -->
