@@ -1,22 +1,22 @@
 <template name="editRightPanel">
 
-<div class="right-panel">
-    <p class="common pull-center">Current screen</p>
-    <select id="screensList" class="form-control">
+    <div class="right-panel">
+    <p class="pull-center right-panel-interface-border custom-header">Current screen</p>
+    <select id="screensList" class="form-control right-panel-interface-border form-control-right-panel">
       {{#each screens}}
         {{> screenSelect}}
       {{/each}}
     </select>
-    <a onclick ="javascript:ShowHide('screenNameDiv')" href="javascript:;" >
+    <a onclick ="ShowHide('screenNameDiv')" href="javascript:" >
         <button id="createScreenButton" class="blue-button right-panel-interface-border">Add new screen</button>
     </a>
     <div id="screenNameDiv" style="DISPLAY: none" >
         <form class="main form">
-            <input class="form-control" type="text" name="screenName" id="screenName" placeholder="Enter name"/>
-            <input type="submit" value="Submit" class="common blue-button right-panel-interface-border">
+            <input class="right-panel-interface-border form-control-right-panel" type="text" name="screenName" id="screenName" placeholder="Enter screen name"/>
+            <input type="submit" value="Ok" class="common blue-button right-panel-interface-border">
         </form>
     </div>
-    <a onclick ="javascript:ShowHide('screenDeleteDiv')" href="javascript:;" >
+    <a onclick ="ShowHide('screenDeleteDiv')" href="javascript:" >
         <button id="createScreenButton" class="red-button right-panel-interface-border">Delete current screen</button>
     </a>
     <div id="screenDeleteDiv" style="DISPLAY: none" >

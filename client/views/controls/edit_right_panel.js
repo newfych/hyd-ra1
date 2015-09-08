@@ -11,7 +11,7 @@ Template.editRightPanel.events({
         //Router.go('postPage', post);
         console.log ('insert screen');
         console.log (screenName);
-        var b = $('#screenNameDiv')
+        var b = $('#screenNameDiv');
         console.log (b);
         $('#screenNameDiv').hide();
         $('#screenName').val('');
