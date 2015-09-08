@@ -1,0 +1,52 @@
+<template name="editRightPanel">
+
+<div class="right-panel">
+    <p class="common pull-center">Current screen</p>
+    <select id="screensList" class="form-control">
+      {{#each screens}}
+        {{> screenSelect}}
+      {{/each}}
+    </select>
+    <a onclick ="javascript:ShowHide('screenNameDiv')" href="javascript:;" >
+        <button id="createScreenButton" class="blue-button right-panel-interface-border">Add new screen</button>
+    </a>
+    <div id="screenNameDiv" style="DISPLAY: none" >
+        <form class="main form">
+            <input class="form-control" type="text" name="screenName" id="screenName" placeholder="Enter name"/>
+            <input type="submit" value="Submit" class="common blue-button right-panel-interface-border">
+        </form>
+    </div>
+    <a onclick ="javascript:ShowHide('screenDeleteDiv')" href="javascript:;" >
+        <button id="createScreenButton" class="red-button right-panel-interface-border">Delete current screen</button>
+    </a>
+    <div id="screenDeleteDiv" style="DISPLAY: none" >
+        <form class="main form">
+            <!--<input class="form-control" type="text" name="screenName" id="screenName" placeholder="Enter name"/>-->
+            <input type="submit" value="Delete?" class="common red-button right-panel-interface-border half-width">
+            <input type="cancel" value="Cancel" class="common blue-button right-panel-interface-border half-width">
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+<script>
+//    function ShowHide(divId, buttonId)
+    function ShowHide(divId)
+    {
+        if(document.getElementById(divId).style.display == 'none')
+        {
+            document.getElementById(divId).style.display='block';
+//            $('#' + buttonId).html('Cancel');
+        }
+        else
+        {
+            document.getElementById(divId).style.display = 'none';
+//            $('#' + buttonId).html('Add new screen');
+        }
+    }
+</script>
+</template>

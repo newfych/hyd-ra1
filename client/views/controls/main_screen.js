@@ -4,4 +4,3 @@ Template.mainScreen.helpers({
         return user.username;
     }
 });
-

@@ -6,13 +6,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="interface-header">
-                <h4 class="custom-header minimal-margin">Here you can edit your screen</h4>
-            </div>
+        <div class="interface-header">
+        <h4 class="custom-header minimal-margin">Here you can edit your <span id="currentScreen" class="common">Main</span> screen</h4>
+        </div>
         </div>
         <div class="container-fluid center-height">
-            <h3 class="background-tips">Tooltip: You can add new intrface elements here, or edit existing.</h3>
+            <h3 class="background-tips">Tooltip: You can add new interface elements here, or edit existing.</h3>
         </div>
+        {{>editRightPanel}}
         <div class="row"> <!-- buttons container -->
             <div class="left-button">
                 <a href="{{pathFor 'mainScreenHelp'}}">
@@ -21,7 +22,7 @@
             </div>
             <div class="middle-button">
                 <a href="#">
-                    <button class="yellow-button">Screen list</button>
+                    <button class="yellow-button">Screens list</button>
                 </a>
             </div>
             <div class="right-button">

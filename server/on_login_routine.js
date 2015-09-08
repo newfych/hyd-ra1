@@ -2,19 +2,14 @@ Accounts.onLogin(function(user){
     console.log(user.user._id);
     console.log(user.user.username);
     var username = user.user.username;
-    var screen_collection = (username + '_screens');
-    var control_collection = (username + '_controls');
-    if (!Checks.findOne(username)) {
-        Checks.insert({username: true});
-
-        ScreenCollection = new Mongo.Collection(screen_collection);
-        ControlCollection = new Mongo.Collection(control_collection);
-
-        ScreenCollection.insert({
-            screen: 'test_screen',
-            screen_name: 'test_screen'
+    if (!Checks.findOne({username: username})) {
+        Checks.insert({username: username, status: true});
+        Screens.insert({
+            username: username,
+            screen_name: 'Main'
         });
-        ControlCollection.insert({
+        Controls.insert({
+            username: username,
             control: 'sample_control',
             control_type: 'button',
             width: 2,
@@ -23,11 +18,18 @@ Accounts.onLogin(function(user){
             left: 3,
             text:'Press me'
         });
+        console.log('test for user data bases');
     }
-
-    screen = ScreenCollection.findOne({screen: 'main_screen'});
-    control = ControlCollection.findOne({control: 'sample_control'});
-    console.log('test');
-    console.log(screen);
-    console.log(control);
+    screens = Screens.find({username: username});
+    controls = Controls.find({username: username});
+    if(Meteor.isServer) {
+        Meteor.publish('Screens', function () {
+            return Screens.find({username: username});
+        });
+        Meteor.publish('Controls', function () {
+            return Controls.find({username: username});
+        });
+        console.log ('Collections PUBLISHED (onloginroutine)')
+    }
 });
+

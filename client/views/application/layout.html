@@ -4,6 +4,9 @@
         <div id="main" class="row-fluid">
             {{>yield}}
         </div>
-        {{>footer}}
+        {{#if currentUser}}
+        {{else}}
+            {{>footer}}
+        {{/if}}
     </div>
 </template>
