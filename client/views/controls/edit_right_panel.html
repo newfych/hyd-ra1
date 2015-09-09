@@ -2,30 +2,36 @@
 
     <div class="right-panel">
     <p class="pull-center right-panel-interface-border custom-header">Current screen</p>
+
     <select id="screensList" class="form-control right-panel-interface-border form-control-right-panel">
       {{#each screens}}
         {{> screenSelect}}
       {{/each}}
     </select>
+
     <a onclick ="ShowHide('screenNameDiv')" href="javascript:" >
         <button id="createScreenButton" class="blue-button right-panel-interface-border">Add new screen</button>
     </a>
+
     <div id="screenNameDiv" style="DISPLAY: none" >
-        <form class="main form">
+        <form class="main form" id="screen-name-form">
             <input class="right-panel-interface-border form-control-right-panel" type="text" name="screenName" id="screenName" placeholder="Enter screen name"/>
             <input type="submit" value="Ok" class="common blue-button right-panel-interface-border">
         </form>
     </div>
     <a onclick ="ShowHide('screenDeleteDiv')" href="javascript:" >
-        <button id="createScreenButton" class="red-button right-panel-interface-border">Delete current screen</button>
+        <button id="createScreenButton" class="blue-button right-panel-interface-border">Delete current screen</button>
     </a>
+
     <div id="screenDeleteDiv" style="DISPLAY: none" >
-        <form class="main form">
-            <!--<input class="form-control" type="text" name="screenName" id="screenName" placeholder="Enter name"/>-->
-            <input type="submit" value="Delete?" class="common red-button right-panel-interface-border half-width">
-            <input type="cancel" value="Cancel" class="common blue-button right-panel-interface-border half-width">
+        <form class="main form"  id="screen-delete-form">
+            <div class="form-group">
+              <input type="submit" value="Delete" class="common blue-button right-panel-interface-border half-width">
+              <button id="cancel-delete-screen" class="common blue-button right-panel-interface-border half-width">Cancel</button>
+            </div>
         </form>
     </div>
+
 </div>
 
 

@@ -1,6 +1,4 @@
 Accounts.onLogin(function(user){
-    console.log(user.user._id);
-    console.log(user.user.username);
     var username = user.user.username;
     if (!Checks.findOne({username: username})) {
         Checks.insert({username: username, status: true});
@@ -18,7 +16,6 @@ Accounts.onLogin(function(user){
             left: 3,
             text:'Press me'
         });
-        console.log('test for user data bases');
     }
     screens = Screens.find({username: username});
     controls = Controls.find({username: username});

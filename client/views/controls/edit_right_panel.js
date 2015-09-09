@@ -1,35 +1,47 @@
 Template.editRightPanel.events({
-    'submit form': function(e) {
+    'submit #screen-name-form': function(e) {
         e.preventDefault();
         var user = Meteor.user().username;
         var screenName = {
             username: user,
             screen_name: $('#screenName').val()
         };
-
-        screen._id = Screens.insert(screenName);
-        //Router.go('postPage', post);
-        console.log ('insert screen');
-        console.log (screenName);
-        var b = $('#screenNameDiv');
-        console.log (b);
+        Screens.insert(screenName);
         $('#screenNameDiv').hide();
         $('#screenName').val('');
-        //$('#createScreenButton').html('Add new screen');
+    },
+    'submit #screen-delete-form': function(e) {
+        e.preventDefault();
+        var current_screen = $('#screensList').val();
+        console.log(current_screen)
+        var currentScreenId = Screens.findOne({screen_name: current_screen})._id;
+        Screens.remove(currentScreenId);
+        $('#screenDeleteDiv').hide();
+    }
+});
+
+Template.editRightPanel.events({
+    'click #cancel-delete-screen' : function(e){
+        var current_screen = $('#screensList').val();
+        $("#screenDeleteDiv").style.display='block';
     }
 });
 
 Template.editRightPanel.events({
     'change #screensList' : function(e){
-        var current_screen = $('#screensList').val();
-        $("#currentScreen").empty();
-        $("#currentScreen").append(current_screen);
-
+        //if (confirm("Delete this screen?")) {
+            var current_screen = $('#screensList').val();
+            $("#currentScreen").empty();
+            $("#currentScreen").append(current_screen);
+        //}
     }
 });
 
 Template.editRightPanel.helpers({
     screens: function() {
         return Screens.find();
+    },
+    controls: function() {
+        return Controls.find();
     }
 });
