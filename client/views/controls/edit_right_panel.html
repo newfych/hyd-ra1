@@ -3,28 +3,26 @@
     <div class="right-panel">
     <p class="pull-center right-panel-interface-border custom-header">Current screen</p>
 
-    <select id="screensList" class="form-control right-panel-interface-border form-control-right-panel">
+    <select id="screens-list" class="form-control right-panel-interface-border form-control-right-panel">
       {{#each screens}}
         {{> screenSelect}}
       {{/each}}
     </select>
 
-    <a onclick ="ShowHide('screenNameDiv')" href="javascript:" >
-        <button id="createScreenButton" class="blue-button right-panel-interface-border">Add new screen</button>
-    </a>
-
-    <div id="screenNameDiv" style="DISPLAY: none" >
-        <form class="main form" id="screen-name-form">
-            <input class="right-panel-interface-border form-control-right-panel" type="text" name="screenName" id="screenName" placeholder="Enter screen name"/>
-            <input type="submit" value="Ok" class="common blue-button right-panel-interface-border">
+    <button id="create-screen-button" class="blue-button right-panel-interface-border custom-href">Add new screen</button>
+    <div id="create-screen-div" style="display: none" >
+        <form class="main form" id="create-screen-form">
+            <input id="create-screen-input" class="right-panel-interface-border form-control-right-panel" type="text" name="screenName" placeholder="Enter screen name"/>
+            <div class="form-group">
+                <input type="submit" value="Create" class="common blue-button right-panel-interface-border half-width">
+                <button id="cancel-create-screen" class="common blue-button right-panel-interface-border half-width">Cancel</button>
+            </div>
         </form>
     </div>
-    <a onclick ="ShowHide('screenDeleteDiv')" href="javascript:" >
-        <button id="createScreenButton" class="blue-button right-panel-interface-border">Delete current screen</button>
-    </a>
 
-    <div id="screenDeleteDiv" style="DISPLAY: none" >
-        <form class="main form"  id="screen-delete-form">
+    <button id="delete-screen-button" class="blue-button right-panel-interface-border custom-href">Delete current screen</button>
+    <div id="delete-screen-div" style="display: none" >
+        <form class="main form"  id="delete-screen-form">
             <div class="form-group">
               <input type="submit" value="Delete" class="common blue-button right-panel-interface-border half-width">
               <button id="cancel-delete-screen" class="common blue-button right-panel-interface-border half-width">Cancel</button>
@@ -34,25 +32,4 @@
 
 </div>
 
-
-
-
-
-
-<script>
-//    function ShowHide(divId, buttonId)
-    function ShowHide(divId)
-    {
-        if(document.getElementById(divId).style.display == 'none')
-        {
-            document.getElementById(divId).style.display='block';
-//            $('#' + buttonId).html('Cancel');
-        }
-        else
-        {
-            document.getElementById(divId).style.display = 'none';
-//            $('#' + buttonId).html('Add new screen');
-        }
-    }
-</script>
 </template>
