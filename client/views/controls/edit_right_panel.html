@@ -7,11 +7,13 @@
             {{/each}}
         </select>
 
-        <a class="btn btn-small btn-block"><span>Create new screen</span></a>
-        <form>
-        <input type="text" name="name" id="name" placeholder="Enter screen name">
-            <a class="link-reset btn btn-small half-width"><span>Discard</span></a>
-            <a class="link-reset btn btn-small half-width"><span>Discard</span></a>
-        </form>
+        <a id="create-screen-button" class="btn btn-small btn-block"><span>Create new screen</span></a>
+        <div id="create-screen-div" style="display: none" >
+            <form>
+                <input type="text" name="screenName" placeholder="Enter screen name">
+                <a class="btn btn-small half-width"><span>Cancel</span></a>
+                <span class="btn btn-small half-width"><input type="submit" value="Create"></span>
+            </form>
+        </div>
     </div>
 </template>
