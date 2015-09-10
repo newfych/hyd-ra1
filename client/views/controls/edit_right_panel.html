@@ -5,13 +5,19 @@
                 {{> screenSelect}}
             {{/each}}
         </select>
-
-        <a href="#" class="btn btn-small full-width"><span>Read more</span></a>
+        <form>
+        <a href="#" class="btn btn-small btn-block"><span>Read more</span></a>
         <input type="text" name="name" id="name" placeholder="Name">
-        <a href="#" class="btn half-width"><span>Read more</span></a>
-        <a href="#" class="btn btn-large"><span>Read more</span></a>
 
-        <a href="#" class="btn btn-black"><span>Read more</span></a>
-        <a href="#" class="btn btn-black btn-large"><span>Read more</span></a>
+        <div class="rowSubmit">
+            <a class="link-reset btn btn-black half-width"><span>Discard</span></a>
+            <a class="link-reset btn btn-black half-width"><span>Discard</span></a>
+        </div>
+        </form>
+        <div class="btn-group">
+            <button type="button" class="btn btn-small">Left</button>
+            <button type="button" class="btn btn-black">Middle</button>
+            <button type="button" class="btn-black btn-large">Right</button>
+        </div>
     </div>
 </template>
