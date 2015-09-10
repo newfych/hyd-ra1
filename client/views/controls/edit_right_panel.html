@@ -1,23 +1,17 @@
 <template name="editRightPanel">
     <div class="container right-panel">
+        <h6 class="foo">Current screen</h6>
         <select class="select_styled select_styled_orange full-width">
             {{#each screens}}
                 {{> screenSelect}}
             {{/each}}
         </select>
-        <form>
-        <a href="#" class="btn btn-small btn-block"><span>Read more</span></a>
-        <input type="text" name="name" id="name" placeholder="Name">
 
-        <div class="rowSubmit">
-            <a class="link-reset btn btn-black half-width"><span>Discard</span></a>
-            <a class="link-reset btn btn-black half-width"><span>Discard</span></a>
-        </div>
+        <a class="btn btn-small btn-block"><span>Create new screen</span></a>
+        <form>
+        <input type="text" name="name" id="name" placeholder="Enter screen name">
+            <a class="link-reset btn btn-small half-width"><span>Discard</span></a>
+            <a class="link-reset btn btn-small half-width"><span>Discard</span></a>
         </form>
-        <div class="btn-group">
-            <button type="button" class="btn btn-small">Left</button>
-            <button type="button" class="btn btn-black">Middle</button>
-            <button type="button" class="btn-black btn-large">Right</button>
-        </div>
     </div>
 </template>
