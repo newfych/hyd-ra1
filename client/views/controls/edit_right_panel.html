@@ -1,35 +1,17 @@
 <template name="editRightPanel">
+    <div class="container right-panel">
+        <select class="select_styled select_styled_orange full-width">
+            {{#each screens}}
+                {{> screenSelect}}
+            {{/each}}
+        </select>
 
-    <div class="right-panel">
-    <p class="pull-center right-panel-interface-border custom-header">Current screen</p>
+        <a href="#" class="btn btn-small full-width"><span>Read more</span></a>
+        <input type="text" name="name" id="name" placeholder="Name">
+        <a href="#" class="btn half-width"><span>Read more</span></a>
+        <a href="#" class="btn btn-large"><span>Read more</span></a>
 
-    <select id="screens-list" class="form-control right-panel-interface-border form-control-right-panel">
-      {{#each screens}}
-        {{> screenSelect}}
-      {{/each}}
-    </select>
-
-    <button id="create-screen-button" class="blue-button right-panel-interface-border custom-href">Add new screen</button>
-    <div id="create-screen-div" style="display: none" >
-        <form class="main form" id="create-screen-form">
-            <input id="create-screen-input" class="right-panel-interface-border form-control-right-panel" type="text" name="screenName" placeholder="Enter screen name"/>
-            <div class="form-group">
-                <input type="submit" value="Create" class="common blue-button right-panel-interface-border half-width">
-                <button id="cancel-create-screen" class="common blue-button right-panel-interface-border half-width">Cancel</button>
-            </div>
-        </form>
+        <a href="#" class="btn btn-black"><span>Read more</span></a>
+        <a href="#" class="btn btn-black btn-large"><span>Read more</span></a>
     </div>
-
-    <button id="delete-screen-button" class="blue-button right-panel-interface-border custom-href">Delete current screen</button>
-    <div id="delete-screen-div" style="display: none" >
-        <form class="main form"  id="delete-screen-form">
-            <div class="form-group">
-              <input type="submit" value="Delete" class="common blue-button right-panel-interface-border half-width">
-              <button id="cancel-delete-screen" class="common blue-button right-panel-interface-border half-width">Cancel</button>
-            </div>
-        </form>
-    </div>
-
-</div>
-
 </template>

@@ -11,6 +11,12 @@
 
     <!-- scripts -->
     <script src="js/general.js"></script>
+    <link rel="stylesheet" href="css/cusel.css">
+    <script src="js/cusel-min.js"></script>
+    <script src="js/jquery.customInput.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script src="js/jquery.powerful-placeholder.min.js"></script>
+    <script src="js/jquery.customInput.js"></script>
 
     <title>Hyd-ra</title>
 
@@ -18,13 +24,6 @@
         html, body {
             width: 100%;
             height: 100%;
-        }
-        body {
-            background: url(/ra.jpg) center no-repeat fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
         }
         .navbar{
             height: 35px;
@@ -54,9 +53,6 @@
         }
         .custom-href:hover{
             color: lavenderblush;
-        }
-        .custom-background{
-            background: rgba(50,100,50,0.7);
         }
         .pull-center {
             text-align: center;
@@ -94,7 +90,6 @@
             height: 90%;
             top: 5%;
             left: 5%;
-            background: rgba(50,100,50,0.7);
         }
         .background-tips{
             width: 100%;
@@ -184,11 +179,7 @@
             top: 0%;
             left: 30%;
         }
-        .right-panel-interface-border{
-            margin: 2%;
-            width: 96%;
-            border-radius: 4px;
-        }
+
         .form-control-right-panel{
             height: 4%;
         }
@@ -201,23 +192,16 @@
             top: 5%;
             height: 90%;
             width: 15%;
-            background: rgba(25, 25, 112, 0.18);
+            padding: 0%;
+        }
+        .full-width{
+            width: 100%;
         }
         .half-width{
-            width: 44%;
+            width: 50%;
         }
-        textarea:hover,
-        input:hover,
-        textarea:active,
-        input:active,
-        textarea:focus,
-        input:focus,
-        button:focus,
-        button:active,
-        button:hover
-        {
-            outline:0px !important;
-            -webkit-appearance:none;
+        *:focus {
+            outline: none;
         }
     </style>
 

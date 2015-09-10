@@ -1,12 +1,13 @@
 <template name="layout">
-    <div class="container">
-        {{>header}}
-        <div id="main" class="row-fluid">
+    <div class="body_wrap">
+        <div class="container">
+            {{>header}}
             {{>yield}}
+            {{#if currentUser}}
+            {{else}}
+                {{>footer}}
+            {{/if}}
         </div>
-        {{#if currentUser}}
-        {{else}}
-            {{>footer}}
-        {{/if}}
     </div>
+
 </template>

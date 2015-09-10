@@ -1,0 +1,32 @@
+<template name="recent editRightPanel">
+    <!--<p class="pull-center">Current screen</p>-->
+
+    <!--<select id="screens-list" class="select_styled full-width">-->
+        <!--{{#each screens}}-->
+    <!--{{> screenSelect}}-->
+        <!--{{/each}}-->
+    <!--</select>-->
+
+
+    <button id="create-screen-button" class="btn">Add new screen</button>
+    <div id="create-screen-div" style="display: none" >
+        <form class="main form" id="create-screen-form">
+            <input id="create-screen-input" class="right-panel-interface-border form-control-right-panel" type="text" name="screenName" placeholder="Enter screen name"/>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-black half-width">
+                <button id="cancel-create-screen" class="btn btn-black half-width">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <button id="delete-screen-button" class="btn btn-black">Delete current screen</button>
+    <div id="delete-screen-div" style="display: none" >
+        <form class="main form"  id="delete-screen-form">
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-black half-width">
+                <button id="cancel-delete-screen" class="btn btn-black half-width">Cancel</button>
+            </div>
+        </form>
+    </div>
+</template>
+
