@@ -1,18 +1,47 @@
 <template name="header">
-    <nav class="navbar navbar-default">
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    {{#if currentUser}}
-                        <li class="navbar-brand common interface-login-button">{{>loginButtons}}</li>
-                        <li><a href="{{pathFor 'mainScreen'}}"><p class="custom-href interface-main-page-button">Main screen</p></a></li>
-                    {{else}}
-                        <span class="navbar-brand common"><p class="common-brand">Hyd-ra</p></span>
-                        <li><a href="{{pathFor 'solutionsList'}}"><p class="custom-href">Home</p></a></li>
-                        <li><a href="{{pathFor 'aboutPage'}}"><p class="custom-href">About</p></a></li>
-                        <li><a href="{{pathFor 'contactsPage'}}"><p class="custom-href">Contacts</p></a></li>
-                        <li class="navbar-brand common">{{>loginButtons}}</li>
-                    {{/if}}
-               </ul>
-            </div>
-    </nav>
+<div class="row">
+    <div class="col-sm-12
+    ">
+    <div class="dropdown-wrap boxed-velvet">
+        <ul class="dropdown inner clearfix">
+    {{#if currentUser}}
+            <li class="menu-level-0">{{>loginButtons}}</li>
+            <li class="menu-level-0"><a href="{{pathFor 'mainScreen'}}">main screen</a></li>
+            <li class="menu-level-0"><a href="{{pathFor 'screenList'}}">screens</a></li>
+            <li class="menu-level-0"><a href="{{pathFor 'editScreen'}}">edit</a>
+                <ul class="submenu-1">
+                    <li class="menu-level-1"><a href="#">screens</a></li>
+                    <li class="menu-level-1"><a href="#">controls</a></li>
+                    <!--<li class="menu-level-1"><a href="#">Contacts</a>-->
+                        <!--<ul class="submenu-2">-->
+                            <!--<li class="menu-level-2"><a href="#">Gallery images</a></li>-->
+                            <!--<li class="menu-level-2"><a href="#">OneByOne Slider</a></li>-->
+                            <!--<li class="menu-level-2"><a href="#">Video in header</a></li>-->
+                            <!--<li class="menu-level-2"><a href="#">Image &amp; Video Slider</a></li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                </ul>
+            </li>
+        <li class="menu-level-0"><a href="{{pathFor 'Help'}}">help</a></li>
+    {{else}}
+            <li class="menu-level-0"><a href="#"><span>Settings</span></a>
+                <ul class="submenu-1">
+                    <li class="menu-level-1"><a href="#">Privacy Policy</a></li>
+                    <li class="menu-level-1"><a href="#">Copyright</a></li>
+                    <li class="menu-level-1"><a href="#">Terms of Service</a>
+                        <ul class="submenu-2">
+                            <li class="menu-level-2"><a href="#">Gallery images</a></li>
+                            <li class="menu-level-2"><a href="#">OneByOne Slider</a></li>
+                            <li class="menu-level-2"><a href="#">Video in header</a></li>
+                            <li class="menu-level-2"><a href="#">Image &amp; Video Slider</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-level-0"><a href="#"><span>Log Out</span></a></li>
+    {{/if}}
+        </ul>
+    </div>
+    </div>
+</div>
 </template>
