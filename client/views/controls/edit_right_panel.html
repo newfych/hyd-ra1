@@ -6,15 +6,13 @@
                 {{> screenSelect}}
             {{/each}}
         </select>
-        <a id="create-screen-button" class="btn a-custom btn-black-medium btn-sm btn-block"><span>Create new screen</span></a>
+        <a id="create-screen-button" class="btn a-custom btn-black-medium btn-block"><span>Create new screen</span></a>
         <div id="create-screen-div">
-            <form id="create-screen-form">
-                <input id="create-screen-input" type="text" name="screenName" placeholder="Enter screen name">
-                <div class="btn-group">
-                    <a id="cancel-create-screen" class="btn a-custom btn-black-medium half-width"><span>Cancel</span></a>
-                    <span class="btn a-custom btn-black-medium half-width" style="opacity: 1;"><input type="submit" style="outline: 0;" hidefocus="true" value="Create"></span>
-                </div>
-            </form>
+            <input id="create-screen-input" type="text" name="screenName" placeholder="Enter screen name">
+            <div class="btn-toolbar">
+                <a id="cancel-create-screen" class="btn a-custom btn-black-medium half-width"><span>Cancel</span></a>
+                <a id="create-screen" class="btn a-custom-orange btn-orange-dark half-width pull-right"><span>Create</span></a>
+            </div>
         </div>
         <div class="divider"></div>
     </div>
