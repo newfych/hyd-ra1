@@ -1,19 +1,21 @@
 <template name="editRightPanel">
-    <div class="container right-panel">
+    <div class="container right-panel boxed-velvet">
         <h6 class="foo">Current screen</h6>
         <select class="select_styled select_styled_orange full-width">
             {{#each screens}}
                 {{> screenSelect}}
             {{/each}}
         </select>
-
-        <a id="create-screen-button" class="btn-black-big btn-block"><span>Create new screen</span></a>
-        <div id="create-screen-div" style="display: none" >
+        <a id="create-screen-button" class="btn a-custom btn-black-medium btn-sm btn-block"><span>Create new screen</span></a>
+        <div id="create-screen-div">
             <form id="create-screen-form">
                 <input id="create-screen-input" type="text" name="screenName" placeholder="Enter screen name">
-                <a id="cancel-create-screen" class="btn btn-black-small half-width"><span>Cancel</span></a>
-                <span class="btn btn-orange-small half-width"><input type="submit" value="Create"></span>
+                <div class="btn-group">
+                    <a id="cancel-create-screen" class="btn a-custom btn-black-medium half-width"><span>Cancel</span></a>
+                    <span class="btn a-custom btn-black-medium half-width" style="opacity: 1;"><input type="submit" style="outline: 0;" hidefocus="true" value="Create"></span>
+                </div>
             </form>
         </div>
+        <div class="divider"></div>
     </div>
 </template>
