@@ -1,10 +1,12 @@
 <template name="layout">
         <div class="body_wrap">
+            <div class="container">
             {{>header}}
             {{>yield}}
             <!--{{#if currentUser}}-->
             <!--{{else}}-->
                 <!--{{>footer}}-->
             <!--{{/if}}-->
+            </div>
         </div>
 </template>
