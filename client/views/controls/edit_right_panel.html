@@ -1,12 +1,14 @@
 <template name="editRightPanel">
-    <div class="container right-panel boxed-velvet">
+    <div class="col-sm-3">
+        <div class="widget-container boxed-velvet" style="height: auto">
         <h6 class="foo">Current screen</h6>
+        </div>
         <select class="select">
             {{#each screens}}
                 {{> screenSelect}}
             {{/each}}
         </select>
-        <a id="create-screen-button" class="btn a-custom btn-black-medium btn-block"><span>Create new screen</span></a>
+        <a id="create-screen-button" class="btn"><span>Create new screen</span></a>
         <div id="create-screen-div">
             <input id="create-screen-input" type="text" name="screenName" placeholder="Enter screen name">
             <div class="btn-toolbar">
@@ -14,6 +16,6 @@
                 <a id="create-screen" class="btn a-custom-orange btn-orange-dark half-width pull-right"><span>Create</span></a>
             </div>
         </div>
-        <div class="divider"></div>
     </div>
+
 </template>

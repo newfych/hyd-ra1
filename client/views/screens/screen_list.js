@@ -5,7 +5,6 @@ Template.screenList.helpers({
 });
 Template.screenList.events({
     'click .col-sm-4' : function(e){
-        console.log(e.currentTarget.id);
         var s_name = e.currentTarget.id;
         var screen = Screens.findOne({screen_name: s_name});
         Router.go('screenPage', screen);
