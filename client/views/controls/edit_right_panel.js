@@ -1,28 +1,89 @@
-divs = ['#create-screen-div', '#delete-screen-div'];
+divs = ['#create-screen-div', '#rename-screen-div','#delete-screen-div'];
 
 Template.editRightPanel.events({
     'click #create-screen-button' : function(e){
         hideDivs('#create-screen-div');
+        $('#create-screen-input').focus();
+    },
+    'click #create-screen' : function(e) {
+        var user = Meteor.user().username;
+        var screen = $.trim($('#create-screen-input').val());
+        if (validateName(screen)) {
+            var screen_name = {
+                username: user,
+                screen_name: screen
+            };
+            Screens.insert(screen_name);
+            $("#screens-list option")
+                .prop('selected', false)
+                .filter(function () {
+                    return $(this).text() == screen;
+                })
+                .prop('selected', true);
+            $('#create-screen-div').hide();
+            $('#create-screen-input').val('');
+            checkForMainScreen();
+        }
     },
     'click #cancel-create-screen' : function(e){
         var current_screen = $('#screens-list').val();
         $("#create-screen-div").hide();
     },
+    'click #rename-screen-button' : function(e){
+        if (!$("#rename-screen-button").prop("disabled"))
+        {
+            hideDivs('#rename-screen-div');
+            var current_screen = $('#screens-list').val();
+            $('#rename-screen-input').val(current_screen);
+            $('#rename-screen-input').focus();
+        }
+    },
+    'click #rename-screen' : function(e) {
+        var renamed_name = $.trim($('#rename-screen-input').val());
+        if (validateName(renamed_name)) {
+            var current_screen = $('#screens-list').val();
+            var current_screen_id = Screens.findOne({screen_name: current_screen})._id;
+            Screens.update(current_screen_id, {$set: {screen_name: renamed_name}});
+            $('#rename-screen-div').hide();
+            $("#screens-list option")
+                .filter(function () {
+                    return $(this).text() == renamed_name;
+                })
+                .prop('selected', true);
+            checkForMainScreen();
+        }
+    },
+    'click #cancel-rename-screen' : function(e){
+        $("#rename-screen-div").hide();
+    },
     'click #delete-screen-button' : function(e){
-        hideDivs('#delete-screen-div');
+        if (!$("#delete-screen-button").prop("disabled")) {
+            hideDivs('#delete-screen-div');
+        }
+    },
+    'click #delete-screen' : function() {
+        var current_screen = $('#screens-list').val();
+        if (current_screen == 'Main') {
+            alert('Main screen can not be deleted!')
+        } else {
+            console.log(current_screen);
+            var current_screen_id = Screens.findOne({screen_name: current_screen})._id;
+            Screens.remove(current_screen_id);
+            $('#delete-screen-div').hide();
+            var current_screen = $('#screens-list').val();
+            checkForMainScreen();
+        }
     },
     'click #cancel-delete-screen' : function(e){
-        var current_screen = $('#screens-list').val();
-        $("#delete-screen-div").show();
+        $("#delete-screen-div").hide();
     }
 });
 
 function hideDivs(except_div){
     for (var i in divs){
-        //var div = $(i);
+        //console.log (divs[i]);
         if (divs[i] == except_div) {
             $(divs[i]).toggle();
-            $('#create-screen-input').focus();
         } else {
             $(divs[i]).hide();
         }
@@ -30,35 +91,9 @@ function hideDivs(except_div){
 };
 
 Template.editRightPanel.events({
-    'submit #create-screen-form': function(e) {
-        e.preventDefault();
-        var user = Meteor.user().username;
-        var screen_name = {
-            username: user,
-            screen_name: $('#create-screen-input').val()
-        };
-        Screens.insert(screen_name);
-        $('#create-screen-div').hide();
-        $('#create-screen-input').val('');
-    },
-    'submit #delete-screen-form': function(e) {
-        e.preventDefault();
-        var current_screen = $('#screens-list').val();
-        if (current_screen == 'Main') {
-            alert('Main screen can not be deleted!')
-        } else {
-            var current_screen_id = Screens.findOne({screen_name: current_screen})._id;
-            Screens.remove(current_screen_id);
-            $('#delete-screen-div').hide();
-        }
-    }
-});
-
-Template.editRightPanel.events({
     'change #screens-list' : function(e){
-        var current_screen = $('#screens-list').val();
-        $("#currentScreen").empty();
-        $("#currentScreen").append(current_screen);
+        checkForMainScreen();
+        $('#rename-screen-input').val($('#screens-list').val());
     }
 });
 
@@ -73,3 +108,28 @@ Template.editRightPanel.helpers({
         return $('#screens-list').val();
     }
 });
+
+function checkForMainScreen(){
+    var current_screen = $('#screens-list').val();
+    if (current_screen == 'Main') {
+        $("#rename-screen-button").prop("disabled", true);
+        $("#rename-screen-button").addClass('disabled');
+        $("#delete-screen-button").prop("disabled", true);
+        $("#delete-screen-button").addClass('disabled');
+        hideDivs('');
+    } else {
+        $("#rename-screen-button").prop("disabled", false);
+        $("#rename-screen-button").removeClass('disabled');
+        $("#delete-screen-button").prop("disabled", false);
+        $("#delete-screen-button").removeClass('disabled');
+    }
+}
+
+function validateName(name){
+    if ( name ==''){
+        alert('Name is empty!')
+        return false;
+    } else {
+        return true;
+    }
+}
