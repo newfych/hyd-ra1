@@ -2,35 +2,24 @@
     <div class="col-sm-3">
         <div class="panel panel-default">
             <div class="panel-body">
-                <p>Current screen</p>
+                <p>Current control</p>
                 <select id="controls-list" class="form-control">
                   {{#each controls}}
                     {{> controlSelect}}
                   {{/each}}
                 </select>
-                <a id="create-screen-button" class="btn btn-primary btn-block"><span>Create new screen</span></a>
-                <div id="create-screen-div" style="display: none">
-                    <input id="create-screen-input" class="form-control" type="text" name="screenName" placeholder="Enter screen name">
+                <a id="change-text-button" class="btn btn-primary btn-block"><span>Change control text</span></a>
+                <div id="change-text-div" style="display: none">
+                    <input id="change-text-input" class="form-control" type="text" name="textName">
                     <div class="btn-toolbar">
-                        <a id="cancel-create-screen" class="btn btn-danger"><span>Cancel</span></a>
-                        <a id="create-screen" class="btn btn-primary pull-right"><span>Create</span></a>
+                        <a id="cancel-change-text" class="btn btn-danger"><span>Cancel</span></a>
+                        <a id="change-text" class="btn btn-primary pull-right"><span>Change</span></a>
                     </div>
                 </div>
-                <a id="rename-screen-button" class="btn btn-primary btn-block disabled"><span>Rename current screen</span></a>
-                <div id="rename-screen-div" style="display: none">
-                    <input id="rename-screen-input" class="form-control" type="text" name="screenRename">
-                    <div class="btn-toolbar">
-                        <a id="rename-screen" class="btn btn-danger"><span>Rename</span></a>
-                        <a id="cancel-rename-screen" class="btn btn-primary pull-right"><span>Cancel</span></a>
-                    </div>
-                </div>
-                <a id="delete-screen-button" class="btn btn-primary btn-block disabled"><span>Delete current screen</span></a>
-                <div id="delete-screen-div" style="display: none">
-                    <div class="btn-toolbar">
-                        <a id="delete-screen" class="btn btn-danger"><span>Delete</span></a>
-                        <a id="cancel-delete-screen" class="btn btn-primary pull-right"><span>Cancel</span></a>
-                    </div>
-                </div>
+                <p>Control width</p>
+                <select id="controls-list" class="form-control">
+                        {{> widthSelect}}
+                </select>
             </div>
         </div>
     </div>

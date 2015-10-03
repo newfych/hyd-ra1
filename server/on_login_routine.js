@@ -6,11 +6,17 @@ Accounts.onLogin(function(user){
             username: username,
             screen_name: 'Main'
         });
+        var screen_id = Screens.findOne({
+            username: username,
+            screen_name: 'Main'})._id;
         Controls.insert({
             username: username,
+            screen: screen_id,
             control_name: 'test_button',
             control_type: 'button',
-            text:'Press me'
+            text:'Press me',
+            width: 3,
+            height: 1
         });
     }
     screens = Screens.find({username: username});

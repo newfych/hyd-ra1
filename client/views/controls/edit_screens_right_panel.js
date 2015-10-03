@@ -1,4 +1,4 @@
-divs = ['#create-screen-div', '#rename-screen-div','#delete-screen-div'];
+
 
 Template.editScreensRightPanel.events({
     'click #create-screen-button' : function(e){
@@ -8,6 +8,7 @@ Template.editScreensRightPanel.events({
     'click #create-screen' : function(e) {
         var user = Meteor.user().username;
         var screen = $.trim($('#create-screen-input').val());
+
         if (validateName(screen)) {
             var screen_name = {
                 username: user,
@@ -20,6 +21,17 @@ Template.editScreensRightPanel.events({
                     return $(this).text() == screen;
                 })
                 .prop('selected', true);
+            var current_screen_id = Screens.findOne({screen_name: screen})._id;
+            var default_control = {
+                username: user,
+                screen: current_screen_id,
+                control_name: 'test_button',
+                control_type: 'button',
+                text:'JIGURDA',
+                width: 3,
+                height: 1
+            }
+            Controls.insert(default_control)
             $('#create-screen-div').hide();
             $('#create-screen-input').val('');
             checkForMainScreen();
@@ -89,6 +101,7 @@ Template.editScreensRightPanel.events({
 });
 
 function hideDivs(except_div){
+    var divs = ['#create-screen-div', '#rename-screen-div','#delete-screen-div'];
     for (var i in divs){
         //console.log (divs[i]);
         if (divs[i] == except_div) {
