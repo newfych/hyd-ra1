@@ -1,6 +1,6 @@
 divs = ['#create-screen-div', '#rename-screen-div','#delete-screen-div'];
 
-Template.editRightPanel.events({
+Template.editScreensRightPanel.events({
     'click #create-screen-button' : function(e){
         hideDivs('#create-screen-div');
         $('#create-screen-input').focus();
@@ -66,7 +66,6 @@ Template.editRightPanel.events({
         if (current_screen == 'Main') {
             alert('Main screen can not be deleted!')
         } else {
-            console.log(current_screen);
             var current_screen_id = Screens.findOne({screen_name: current_screen})._id;
             Screens.remove(current_screen_id);
             $('#delete-screen-div').hide();
@@ -76,6 +75,16 @@ Template.editRightPanel.events({
     },
     'click #cancel-delete-screen' : function(e){
         $("#delete-screen-div").hide();
+    },
+    'click #edit-screen-button' : function(e){
+        var current_screen = $('#screens-list').val();
+        var screen = Screens.findOne({screen_name: current_screen});
+        Router.go('editControls', screen);
+    },
+    'click #switch-screen-button' : function(e){
+        var current_screen = $('#screens-list').val();
+        var screen = Screens.findOne({screen_name: current_screen});
+        Router.go('screenPage', screen);
     }
 });
 
@@ -90,14 +99,14 @@ function hideDivs(except_div){
     }
 };
 
-Template.editRightPanel.events({
+Template.editScreensRightPanel.events({
     'change #screens-list' : function(e){
         checkForMainScreen();
         $('#rename-screen-input').val($('#screens-list').val());
     }
 });
 
-Template.editRightPanel.helpers({
+Template.editScreensRightPanel.helpers({
     screens: function() {
         return Screens.find();
     },

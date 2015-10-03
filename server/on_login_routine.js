@@ -8,12 +8,8 @@ Accounts.onLogin(function(user){
         });
         Controls.insert({
             username: username,
-            control: 'sample_control',
+            control_name: 'test_button',
             control_type: 'button',
-            width: 2,
-            height: 2,
-            top: 2,
-            left: 3,
             text:'Press me'
         });
     }

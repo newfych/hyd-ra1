@@ -1,12 +1,12 @@
-<template name="editScreensRightPanel">
+<template name="editControlsRightPanel">
     <div class="col-sm-3">
         <div class="panel panel-default">
             <div class="panel-body">
                 <p>Current screen</p>
-                <select id="screens-list" class="form-control">
-                    {{#each screens}}
-                        {{> screenSelect}}
-                    {{/each}}
+                <select id="controls-list" class="form-control">
+                  {{#each controls}}
+                    {{> controlSelect}}
+                  {{/each}}
                 </select>
                 <a id="create-screen-button" class="btn btn-primary btn-block"><span>Create new screen</span></a>
                 <div id="create-screen-div" style="display: none">
@@ -31,8 +31,6 @@
                         <a id="cancel-delete-screen" class="btn btn-primary pull-right"><span>Cancel</span></a>
                     </div>
                 </div>
-                <a id="edit-screen-button" class="btn btn-primary btn-block"><span>Edit current screen</span></a>
-                <a id="switch-screen-button" class="btn btn-primary btn-block"><span>Switch to current screen</span></a>
             </div>
         </div>
     </div>
