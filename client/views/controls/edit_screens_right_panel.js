@@ -25,11 +25,13 @@ Template.editScreensRightPanel.events({
             var default_control = {
                 username: user,
                 screen: current_screen_id,
-                control_name: 'test_button',
+                control_name: 'button_1',
                 control_type: 'button',
                 text:'JIGURDA',
                 width: 3,
-                height: 1
+                height: 1,
+                pos_x: 0,
+                pos_y: 0
             }
             Controls.insert(default_control)
             $('#create-screen-div').hide();
