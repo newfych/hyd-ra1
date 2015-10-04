@@ -28,6 +28,9 @@ function settingWorkSpace() {
 }
 
 function fillControls(){
+    var workspace = $('#controls-workspace');
+    var step = (workspace.width() / 12);
+    var p = workspace.position();
     var controls = Controls.find({screen: currentScreenId()});
     var a;
     controls.forEach(function (control) {
@@ -36,11 +39,15 @@ function fillControls(){
         var x = control.pos_x;
         var y = control.pos_y;
         var id = control._id;
-        $('#lol').css({
-            position: "absolute",
-            marginLeft: 0, marginTop: 0,
-            top: 0, left: 0
-        }).appendTo('body');
+        workspace.append('<div id="' + id + '">JIGURDA</div>')
+        var element = $('#' + id);
+        element.width(w * step);
+        element.height(h * step);
+        var top_offset = step + p.top;
+        var left_offset = step + p.left;
+        element.css({position: "absolute", marginLeft: 0,
+            marginTop: 0, top: top_offset, left: left_offset});
+        element.css('backgroundColor', '#00FF00');
 
     })
     return a
@@ -63,4 +70,5 @@ function currentScreenId(){
 
 Template.editControls.rendered = (function() {
     settingWorkSpace();
+    fillControls();
 });
