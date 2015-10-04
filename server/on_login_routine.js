@@ -19,8 +19,6 @@ Accounts.onLogin(function(user){
             height: 1
         });
     }
-    screens = Screens.find({username: username});
-    controls = Controls.find({username: username});
     if(Meteor.isServer) {
         Meteor.publish('Screens', function () {
             return Screens.find({username: username});
@@ -29,6 +27,10 @@ Accounts.onLogin(function(user){
             return Controls.find({username: username});
         });
         console.log ('Collections PUBLISHED (onloginroutine)')
+    }
+    if(Meteor.isClient) {
+        Meteor.subscribe('Screens');
+        Meteor.subscribe('Controls');
     }
 });
 

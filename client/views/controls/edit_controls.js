@@ -19,8 +19,9 @@ Template.editControls.helpers({
 function fillControls(){
     var controls = Controls.find({screen: currentScreenId()});
     var a = '';
-    var w = currentControlWidth();
+
     controls.forEach(function (control) {
+        var w = control.width;
         a = '<div class="col-sm-'
         + w +
         '"><a class="btn btn-primary btn-block"><span>'
@@ -30,11 +31,13 @@ function fillControls(){
     return a
 }
 
-function currentControlWidth(){
-    var current_control = $('#controls-list').val();
-    var b = Controls.findOne({screen: currentScreenId(), control_name: current_control}).width;
-    return b
-}
+//function currentControlWidth(control){
+//    var current_control = $('#controls-list').val();
+//    console.log ('CURRENT Control '+ current_control)
+//    var b = Controls.findOne({screen: currentScreenId(), control_name: current_control});
+//    var c = b.width;
+//    return c
+//}
 
 function currentScreenName(){
     var a = Router.current().url;
