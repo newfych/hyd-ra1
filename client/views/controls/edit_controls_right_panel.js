@@ -40,7 +40,24 @@ Template.editControlsRightPanel.events({
     },
     'click #cancel-change-text' : function(){
         $("#change-text-div").hide();
+    },
+    'click #x-minus' : function(){
+        var x = currentControl().pos_x;
+        Controls.update(currentControl()._id, {$set: {pos_x: (x-1)}});
+    },
+    'click #x-plus' : function(){
+        var x = currentControl().pos_x;
+        Controls.update(currentControl()._id, {$set: {pos_x: (x+1)}});
+    },
+    'click #y-minus' : function(){
+        var y = currentControl().pos_y;
+        Controls.update(currentControl()._id, {$set: {pos_y: (y-1)}});
+    },
+    'click #y-plus' : function(){
+        var y = currentControl().pos_y;
+        Controls.update(currentControl()._id, {$set: {pos_y: (y+1)}});
     }
+
 });
 
 Template.editControlsRightPanel.events({
