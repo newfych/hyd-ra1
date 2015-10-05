@@ -10,21 +10,29 @@ Template.editControls.helpers({
     },
     current_screen:function(){
         return currentScreenName()
-    },
-    fill_controls: function() {
-        return fillControls()
     }
 });
 
 function settingWorkSpace() {
     var workspace = $('#controls-workspace');
     var w = workspace.width();
-    console.log('current width = ' + w);
     var h = w * 0.75;
     workspace.height(h);
     var p = workspace.position();
-    console.log('current pos left = ' + p.left);
-    console.log('current pos top = ' + p.top);
+    var control_width = currentControl().width;
+    $("#control-width option")
+        .prop('selected', false)
+        .filter(function () {
+            return $(this).val() == control_width;
+        })
+        .prop('selected', true);
+    var control_height = currentControl().height;
+    $("#control-height option")
+        .prop('selected', false)
+        .filter(function () {
+            return $(this).val() == control_height;
+        })
+        .prop('selected', true);
 }
 
 function fillControls(){
@@ -32,32 +40,33 @@ function fillControls(){
     var step = (workspace.width() / 12);
     var p = workspace.position();
     var controls = Controls.find({screen: currentScreenId()});
-    var a;
     controls.forEach(function (control) {
         var w = control.width;
         var h = control.height;
         var x = control.pos_x;
         var y = control.pos_y;
+        var text = control.text;
         var id = control._id;
-        workspace.append('<div id="' + id + '">JIGURDA</div>')
+        workspace.append('<div id="' + id + '">' + text + '</div>')
         var element = $('#' + id);
         element.width(w * step);
         element.height(h * step);
-        var top_offset = step + p.top;
-        var left_offset = step + p.left;
+        var top_offset = y*step + p.top;
+        var left_offset = x*step + p.left;
         element.css({position: "absolute", marginLeft: 0,
             marginTop: 0, top: top_offset, left: left_offset});
-        element.css('backgroundColor', '#00FF00');
-
+        element.css('backgroundColor', '#00FFA0');
     })
-    return a
+}
+
+function currentControl(){
+    var current_control = $('#controls-list').val();
+    var b = Controls.findOne({screen: currentScreenId(), control_name: current_control});
+    return b
 }
 
 function currentScreenName(){
-    var a = Router.current().url;
-    var b = a.split('/');
-    var c = b[(b.length - 1)];
-    var d = Screens.findOne({_id: c}).screen_name;
+    var d = Screens.findOne({_id: currentScreenId()}).screen_name;
     return d
 }
 
