@@ -5,3 +5,11 @@
     -o-background-size: 100%;
     background-size: 100%;
 }
+.scrollbar {
+    width: 32px;
+    height: 180px;
+    overflow: auto;
+    float: left;
+    margin-right: 27px;
+    color:#e6e6e5;
+}

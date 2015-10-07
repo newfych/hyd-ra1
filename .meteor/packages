@@ -12,3 +12,7 @@ sacha:spin
 accounts-ui
 accounts-password
 jquery
+meteorhacks:npm
+
+
+npm-container

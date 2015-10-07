@@ -141,6 +141,19 @@ function validateName(name){
         alert('Name is empty!')
         return false;
     } else {
-return true;
+    return true;
+    }
 }
-}
+
+jQuery(function()
+{
+    jQuery('.scrollbar').jScrollPane({
+        verticalDragMaxHeight: 39,
+        verticalDragMinHeight: 39
+    });
+
+    jQuery('.scrollbar.style2').jScrollPane({
+        verticalDragMaxHeight: 36,
+        verticalDragMinHeight: 36
+    });
+});
