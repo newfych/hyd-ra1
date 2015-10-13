@@ -17,6 +17,7 @@ Controls.find().observeChanges({
     },
     changed: function() {
         console.log('controls changed');
+        updateArrows();
         updateControl();
         updateFields();
     },
@@ -145,15 +146,31 @@ function validateName(name){
     }
 }
 
-jQuery(function()
-{
-    jQuery('.scrollbar').jScrollPane({
-        verticalDragMaxHeight: 39,
-        verticalDragMinHeight: 39
-    });
+function updateArrows(){
+    var workspace = $('#controls-workspace');
+    var step = (workspace.width() / 12);
+    var p = workspace.position();
+    var control = currentControl();
+    var w = control.width;
+    var h = control.height;
+    var x = control.pos_x;
+    var y = control.pos_y;
+    var id = control._id;
+    var element = $('#' + id);
+    element.width(w * step);
+    element.height(h * step);
+    var top_offset = y*step + p.top;
+    var left_offset = x*step + p.left;
+    if (y <= 0 ){
+        $("#y-minus").prop('disabled', true);
+    }
 
-    jQuery('.scrollbar.style2').jScrollPane({
-        verticalDragMaxHeight: 36,
-        verticalDragMinHeight: 36
-    });
-});
+    if (x <= 0 ){
+        $("#x-minus").prop('disabled', true);
+    }
+    //element.css({position: "absolute", marginLeft: 0,
+    //    marginTop: 0, top: top_offset, left: left_offset});
+    //element.css('backgroundColor', '#00FFA0');
+    //element.text(text);
+
+}
